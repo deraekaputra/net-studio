@@ -1,0 +1,218 @@
+.shows {
+    position: relative;
+    margin-top: 24px;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        position: relative;
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        border-top: 2px solid $primary-black;
+
+        .header-item {
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            position: relative;
+            padding: 12px 8px 8px;
+
+            &--is-active {
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background-color: $white;
+                }
+            }
+        }
+
+        .header-title {
+            margin: 0;
+            font-weight: bold;
+            color: $white;
+        }
+    }
+
+    &__content {
+        position: relative;
+        margin-bottom: 24px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+        position: relative;
+
+        .list-item {
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            position: relative;
+            width: 100%;
+
+            .schedule-card {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+
+                &--live {
+                    .schedule-card__meta {
+                        .schedule-card__title {
+                            &::after {
+                                width: 125px;
+                            }
+                        }
+                    }
+                }
+
+                &__date-time {
+                    float: left;
+                    position: relative;
+                    width: 25%;
+                    padding-top: 17px;
+                    padding-bottom: 17px;
+                    padding-left: 20px;
+                }
+
+                &__meta {
+                    float: left;
+                    position: relative;
+                    width: 73%;
+                    margin-left: 2%;
+                    padding-top: 17px;
+                    padding-bottom: 17px;
+                    padding-left: 16px;
+                    border-bottom: 1px solid $primary-black;
+                }
+
+                &__title {
+                    position: relative;
+                    width: calc(100% - 80px);
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: -60px;
+                        bottom: 0;
+                        width: 90px;
+                        height: 25px;
+                        background-image: linear-gradient(90deg, rgba(13,13,13,0.00) 0%, #0D0D0D 21%);
+                    }
+                }
+
+                &__live-badge {
+                    position: absolute;
+                    top: -8px;
+                    right: 0;
+                    padding-right: 3px;
+                    padding-left: 3px;
+                    background-color: #F21A1A;
+                    border-radius: 2px;
+                    font-size: 0.687rem;
+                    font-weight: bold;
+                    text-align: center;
+                    color: $white;
+                    z-index: 1;
+                }
+
+                &__studio {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    padding-top: 17px;
+                    padding-right: 20px;
+                    padding-bottom: 17px;
+                    padding-left: 16px;
+                    background-color: $seconday-black;
+                }
+
+                .meta {
+                    &__title {
+                        margin: 0;
+                        font-family: $font-family-content;
+                        font-weight: bold;
+                        white-space: nowrap;
+                        color: $white;
+                    }
+
+                    &__subtitle {
+                        display: block;
+                        font-family: $font-family-content;
+                        font-size: 0.687rem;
+                        color: $white;
+                    }
+                }
+
+                .studio-badge {
+                    position: relative;
+                    width: 44px;
+                    height: 42px;
+                    border-radius: 4px;
+
+                    &__top {
+                        display: block;
+                        position: relative;
+                        font-size: 0.687rem;
+                        text-align: center;
+                        line-height: 1.8;
+                        color: $white;
+                    }
+
+                    &__bottom {
+                        display: block;
+                        position: relative;
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        text-align: center;
+                        line-height: 0.8;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .shows__list .list-item .schedule-card__date-time {
+        width: 23%;
+    }
+
+    .shows__list .list-item .schedule-card__meta {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .shows__list .list-item .schedule-card__date-time {
+        width: 30%;
+    }
+
+    .shows__list .list-item .schedule-card__meta {
+        width: 68%;
+    }
+}
+
+@supports(padding: max(0px)) {
+    .shows__content {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

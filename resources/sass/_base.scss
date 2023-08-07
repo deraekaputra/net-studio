@@ -1,0 +1,13 @@
+.app-enter-active,
+.app-leave-active {
+    transition: opacity .3s ease;
+}
+
+.app-enter,
+.app-leave-to {
+    opacity: 0;
+}
+
+.hide-item {
+    display: none !Important;
+}

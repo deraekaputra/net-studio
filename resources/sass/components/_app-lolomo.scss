@@ -1,0 +1,142 @@
+.lolomo {
+    position: relative;
+    margin-bottom: 74px;
+
+    .lomo-row {
+        position: relative;
+        padding-top: 8px;
+        padding-bottom: 16px;
+
+        h6 {
+            margin-left: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .lomo {
+            padding-right: 20px;
+            padding-left: 20px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            clear: both;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+
+            .studio-card {
+                display: inline-block;
+                position: relative;
+                width: 108px;
+                height: 108px;
+                margin-right: 6px;
+                overflow: hidden;
+
+                div {
+                    position: absolute;
+                    top: -7px;
+                    left: 9px;
+                    width: 153px;
+                    height: 153px;
+                    border-radius: 100%;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .studio-title {
+                    display: inline-block;
+                    position: absolute;
+                    right: 20px;
+                    bottom: 55px;
+                    font-size: 1rem;
+                    color: $white;
+                }
+
+                .studio-initial {
+                    display: inline-block;
+                    position: absolute;
+                    right: 20px;
+                    bottom: -5px;
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: $white;
+                }
+            }
+
+            .show-card {
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                margin-right: 6px;
+                overflow: hidden;
+
+                &__cover {
+                    position: relative;
+                    width: 100%;
+                    margin-bottom: 4px;
+                    padding-top: (9 / 16) * 100%;
+                }
+
+                &__image {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    background-position: center;
+                    background-size: cover;
+                }
+
+                &__meta {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    align-content: flex-end;
+
+                    .meta-item {
+                        order: 0;
+                        flex: 0 1 auto;
+                        align-self: auto;
+                        font-family: $font-family-content;
+                        color: $white;
+
+                        span {
+                            display: block;
+                            line-height: 1.2;
+                        }
+
+                        &__date {
+                            font-size: 0.812rem;
+                        }
+
+                        &__time {
+                            font-size: 0.875rem;
+                            font-weight: 600;
+                        }
+
+                        &__count {
+                            font-size: 1.125rem;
+                            font-weight: bold;
+                            text-align: right;
+                        }
+
+                        &__left {
+                            font-size: 0.687rem;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@supports(padding: max(0px)) {
+    .lolomo {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

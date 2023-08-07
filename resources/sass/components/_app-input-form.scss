@@ -1,0 +1,125 @@
+.form-input {
+    margin-top: 24px;
+
+    &--splited {
+        .form-input__wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+        }
+
+        .form-input__field {
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+            width: 15%;
+            min-width: 0;
+            text-align: center;
+
+            &::-moz-placeholder {
+                opacity: 1;
+            }
+    
+            &::placeholder {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+        min-width: 0%;
+    }
+
+    &__field {
+        display: block;
+        position: relative;
+        min-width: 100%;
+        padding: 13px 16px;
+        background-color: transparent;
+        border: 1px solid #878787;
+        border-radius: 4px;
+        outline: none;
+        font-family: $font-family-system;
+        font-size: 0.812rem;
+        font-weight: bold;
+        color: $white;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+
+        &::-moz-placeholder {
+            opacity: 0;
+        }
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus {
+            &::-moz-placeholder {
+                opacity: 1;
+            }
+            &::placeholder {
+                opacity: 1;
+            }
+
+            border-color: $white;
+
+            ~.form-input__placeholder {
+                -webkit-transform: translateY(-20px);
+                transform: translateY(-20px);
+                font-size: 0.625rem;
+                color: $white;
+                z-index: 0;
+            }
+        }
+
+        &:not(:placeholder-shown) {
+            ~.form-input__placeholder {
+                -webkit-transform: translateY(-20px);
+                transform: translateY(-20px);
+                font-size: 0.625rem;
+                color: $white;
+                z-index: 0;
+            }
+        }
+
+        &--error {
+            border-color: #E50A0A;
+        }
+    }
+
+    &__placeholder {
+        position: absolute;
+        top: 13px;
+        left: 12px;
+        padding-right: 4px;
+        padding-left: 4px;
+        background-color: $seconday-black;
+        font-family: $font-family-system;
+        font-size: 0.812rem;
+        font-weight: bold;
+        color: #878787;
+        -webkit-transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: -1;
+    }
+}
+
+
+.input-password-view {
+    text-align: center;
+    font-size: 23px;
+}
+
+
+button.button-copy {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    background: transparent;
+    border: none;
+}

@@ -1,0 +1,336 @@
+.ticket {
+    &__details {
+        position: relative;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        padding-top: 50px;
+        padding-bottom: 24px;
+    }
+
+    &__content {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        position: relative;
+        width: 100%;
+    }
+
+    &__header {
+        position: relative;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    &__label {
+        display: block;
+        font-size: 0.812rem;
+        text-align: center;
+        color: $white;
+    }
+
+    &__title {
+        margin: 0;
+        margin-top: 4px;
+        font-weight: bold;
+        text-align: center;
+        color: $white;
+    }
+
+    &__information {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        margin-top: 32px;
+        padding-right: 20px;
+        padding-left: 20px;
+
+        div {
+            order: 0;
+            flex: 0 1 auto;
+            align-self: auto;
+        }
+
+        .studio-badge {
+            position: relative;
+            width: 55px;
+            height: 44px;
+            border-radius: 4px;
+
+            &__top {
+                display: block;
+                position: relative;
+                font-size: 0.812rem;
+                text-align: center;
+                line-height: 1.8;
+                color: $white;
+            }
+
+            &__bottom {
+                display: block;
+                position: relative;
+                font-size: 1.25rem;
+                font-weight: bold;
+                text-align: center;
+                line-height: 0.8;
+                color: $white;
+            }
+        }
+    }
+
+    &__amount {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        margin-top: 32px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        margin-top: 50px;
+        padding-right: 20px;
+        padding-left: 20px;
+
+        .footer-info {
+            margin: 0;
+            margin-bottom: 24px;
+            font-weight: bold;
+            color: $white;
+        }
+
+        .footer-button {
+            display: block;
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $white;
+            border-radius: 4px;
+            outline: none;
+            font-size: 0.812rem;
+            font-weight: bold;
+
+            &--primary {
+                background-color: $white;
+                color: $seconday-black;
+            }
+
+            &--secondary {
+                background-color: transparent;
+                color: $white;
+            }
+        }
+    }
+
+    &__sheet {
+        display: inline-block;
+        position: relative;
+        padding: 0;
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        span {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.812rem;
+            font-weight: bold;
+            text-align: center;
+            color: $white;
+        }
+    }
+}
+
+.e-ticket {
+    &__top {
+        margin: 0;
+        margin-bottom: 24px;
+        padding-top: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: $seconday-black;
+    }
+
+    &__count {
+        position: absolute;
+        top: 17px;
+        right: 20px;
+        margin: 0;
+        font-weight: bold;
+        text-align: right;
+        color: $seconday-black;
+    }
+
+    &__card {
+        position: relative;
+        width: 267px !important;
+        height: 367px;
+        padding: 16px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    &__bubble2 {
+        position: absolute;
+        top: -70px;
+        left: -85px;
+        width: 267px;
+        height: 267px;
+        border-radius: 50%;
+    }
+
+    &__bubble1 {
+        position: absolute;
+        right: -88px;
+        bottom: -70px;
+        width: 333px;
+        height: 333px;
+        border-radius: 50%;
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    &__status {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+
+        .status {
+            &__heading {
+                display: block;
+                font-size: 0.5rem;
+                text-align: right;
+                color: $white;
+            }
+
+            &__badge {
+                display: block;
+                margin-top: 4px;
+                padding: 2px 6px;
+                border-radius: 20px;
+                font-size: 0.625rem;
+                font-weight: bold;
+                color: $white;
+
+                &--unchecked {
+                    background-color: var(--red);
+                }
+
+                &--checked {
+                    background-color: var(--green);
+                }
+            }
+        }
+    }
+
+    &__meta {
+        position: relative;
+        margin-top: 7px;
+
+        &::before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 40px;
+            height: 4px;
+            margin-bottom: 8px;
+            background-color: $white;
+        }
+    }
+
+    &__place {
+        position: relative;
+        margin-top: 16px;
+    }
+
+    &__title {
+        margin: 0;
+        font-weight: bold;
+        color: $white;
+    }
+
+    &__subtitle {
+        display: block;
+        font-size: 0.625rem;
+        color: $white;
+    }
+
+    &__qrcode {
+        position: relative;
+        width: 168px;
+        height: 168px;
+        margin: 20px auto 0;
+        padding: 8px;
+        background-color: $white;
+        border-radius: 8px;
+    }
+
+    &__close {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        margin-top: 8px;
+        padding: 16px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        span {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.625rem;
+            font-weight: bold;
+            text-align: center;
+            color: $seconday-black;
+        }
+    }
+}
+
+.slick-list {
+    margin: 0 -10px;
+}
+
+.slick-slide {
+    margin: 0 10px;
+}
+
+@supports(padding: max(0px)) {
+    .ticket__details {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

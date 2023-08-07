@@ -1,0 +1,68 @@
+.my-show {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    width: 100%;
+    padding: 16px 20px;
+
+    &__image {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        display: block;
+        max-width: 39.5%;
+    }
+
+    &__meta {
+        order: 0;
+        flex: 1 1 auto;
+        align-self: auto;
+        width: 56%;
+        padding-left: 16px;
+        padding-right: 8px;
+    }
+
+    &__title {
+        margin: 0;
+        overflow: hidden;
+        font-family: $font-family-content;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: $white;
+    }
+
+    &__subtitle {
+        display: block;
+        overflow: hidden;
+        font-family: $font-family-content;
+        font-size: 0.812rem;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+        white-space: nowrap;
+        color: $white;
+    }
+
+    &__studio-badge {
+        display: inline-block;
+        position: relative;
+        margin-top: 8px;
+        padding: 4px 6px;
+        border-radius: 4px;
+        font-size: 0.687rem;
+        font-weight: bold;
+        line-height: 1.2;
+        color: $white;
+    }
+
+    svg {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        position: relative;
+    }
+}

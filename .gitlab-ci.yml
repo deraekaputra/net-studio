@@ -1,0 +1,69 @@
+cache:
+  untracked: true
+  key: "cms-${CI_COMMIT_REF_SLUG}"
+  paths:
+    - vendor/
+    - .composer/
+    - storage/
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  image: gitlab.qubicle.id:5000/devops/docker/php:latest
+  before_script:
+    - rm -rf /root/.composer || true
+    - mv -f .composer /root/.composer || true
+  after_script:
+    - rm -rf .composer || true
+    - mv -f /root/.composer .composer || true
+  script:
+    - /usr/local/bin/composer.phar global require hirak/prestissimo -vvv
+    - /usr/local/bin/composer.phar update -vvv
+    - /usr/local/bin/composer.phar dump-autoload
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  image: gitlab.qubicle.id:5000/devops/gitlab-runner-image:latest
+  before_script:
+    - rm -rf /root/.composer || true
+    - mv -f .composer /root/.composer || true
+    - rm -rf .git || true
+    - rm -rf storage/framework/views/* || true
+  after_script:
+    - rm -rf .composer || true
+    - mv -f /root/.composer .composer || true
+  script:
+    - mv -f docker/Dockerfile .
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_BUILD_REF .
+    - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF
+    - docker tag $CI_REGISTRY_IMAGE:$CI_BUILD_REF $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - master
+
+deploy-design:
+  stage: deploy
+  image: gitlab.qubicle.id:5000/devops/gitlab-runner-image:latest
+  before_script:
+    - rm -rf /root/.composer || true
+    - mv -f .composer /root/.composer || true
+    - rm -rf .git || true
+    - rm -rf storage/framework/views/* || true
+  after_script:
+    - rm -rf .composer || true
+    - mv -f /root/.composer .composer || true
+  script:
+    - mv -f docker/Dockerfile .
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_BUILD_REF .
+    - docker push $CI_REGISTRY_IMAGE:$CI_BUILD_REF
+    - docker tag $CI_REGISTRY_IMAGE:$CI_BUILD_REF $CI_REGISTRY_IMAGE:design
+    - docker push $CI_REGISTRY_IMAGE:design
+  only:
+    - design
